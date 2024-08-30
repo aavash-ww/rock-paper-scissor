@@ -1,0 +1,11 @@
+body {
+  text-align: center;
+}
+
+button {
+  align-items: center;
+}
+
+.player .computer {
+  display: flex;
+}

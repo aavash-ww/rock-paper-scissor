@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rock-Paper</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- <script src="script.js" defer></script> -->
+  </head>
+  <body>
+    <button onclick="playGame('rock')">Rock</button>
+    <button onclick="playGame('paper')">Paper</button>
+    <button onclick="playGame('scissor')">Scissor</button>
+
+    <p id="result-div"></p>
+
+    <script>
+      function playGame(playerChoice) {
+        let arr = ["rock", "paper", "scissor"];
+        let i = Math.floor(Math.random() * 3);
+        let computerChoice = arr[i];
+        let result = "";
+        //gamePlay
+        if (playerChoice === computerChoice) {
+          result = "Draw";
+        } else if (
+          (playerChoice === "rock" && computerChoice === "scissor") ||
+          (playerChoice === "scissor" && computerChoice === "rock") ||
+          (playerChoice === "paper" && computerChoice === "rock")
+        ) {
+          result = "You win!";
+        } else {
+          result = "You Lose";
+        }
+        document.querySelector(
+          "#result-div"
+        ).textContent = `You chose ${playerChoice} and Computer chose ${computerChoice}. So the result is ${result}.`;
+      }
+    </script>
+  </body>
+</html>
